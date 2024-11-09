@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Djanggo app pertamaku</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h1>Hello! this is index.html</h1>
+
+    <p>ini adalah logo dari codeplay</p>
+    <img src="{% static 'images/codeplay.png' %}" alt="codeplay">
+
+    <h2>this is your access record:</h2>
+    <div class="djangotwo">
+        {% if access_records %}
+            <table>
+                <thead>
+                    <th>Site Name</th>
+                    <th>Data Accessed</th>
+                </thead>
+                {% for acc in access_records %}
+                    <tr>
+                        <td>{{acc.name}}</td>
+                        <td>{{acc.date}}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p>NO ACCESS RECORDS FOUND</p>
+        {% endif %}
+    </div>
+</body>
+</html>
